@@ -19,4 +19,8 @@ public class CustomerService {
         return customer;
     }
 
+    public Customer findById(Integer id) {
+        return customerDao.findById(id);
+    }
+
 }

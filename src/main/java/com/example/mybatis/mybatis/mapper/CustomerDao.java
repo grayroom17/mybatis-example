@@ -18,7 +18,7 @@ public interface CustomerDao {
             select *
             from customers
             where id=#{id}""")
-    Customer getCustomerById(Integer id);
+    Customer findById(Integer id);
 
     @Update("""
             update customers
@@ -34,7 +34,7 @@ public interface CustomerDao {
     @Select("""
             select *
             from customers""")
-    List<Customer> findAllCustomers();
+    List<Customer> findAll();
 
     @Select("""
             select *
