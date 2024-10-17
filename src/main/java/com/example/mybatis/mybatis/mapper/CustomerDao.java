@@ -12,7 +12,7 @@ public interface CustomerDao {
             insert into customers (name, city, email, phone)
             values (#{name},#{city},#{email}, #{phone})""")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    void addCustomer(Customer customer);
+    void save(Customer customer);
 
     @Select("""
             select *
