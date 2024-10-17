@@ -5,10 +5,7 @@ import com.example.mybatis.service.CustomerService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
@@ -19,8 +16,13 @@ public class CustomerController {
     CustomerService service;
 
     @PostMapping
-    public Customer findAll(@RequestBody Customer customer) {
+    public Customer create(@RequestBody Customer customer) {
         return service.create(customer);
+    }
+
+    @GetMapping("/{id}")
+    public Customer findById(@PathVariable Integer id) {
+        return service.findById(id);
     }
 
 }
