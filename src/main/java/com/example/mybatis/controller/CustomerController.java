@@ -44,4 +44,9 @@ public class CustomerController {
         return service.findByCity(city);
     }
 
+    @GetMapping
+    public List<Customer> findAll(){
+        return service.findAll();
+    }
+
 }
