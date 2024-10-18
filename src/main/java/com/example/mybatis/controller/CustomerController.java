@@ -8,6 +8,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 @RestController
@@ -35,6 +37,11 @@ public class CustomerController {
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id) {
         service.deleteById(id);
+    }
+
+    @GetMapping("/list")
+    public List<Customer> findByCity(@RequestParam String city){
+        return service.findByCity(city);
     }
 
 }

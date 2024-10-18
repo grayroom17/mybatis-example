@@ -40,6 +40,6 @@ public interface CustomerDao {
             select *
             from customers
             where city=#{city}""")
-    List<Customer> findAllCustomersByCity(String city);
+    List<Customer> findAllByCity(String city);
 
 }

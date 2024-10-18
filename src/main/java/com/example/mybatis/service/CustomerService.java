@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.List;
+
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 @Service
@@ -40,6 +42,10 @@ public class CustomerService {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Customer not found by id=%s".formatted(id));
         }
         customerDao.deleteById(id);
+    }
+
+    public List<Customer> findByCity(String city) {
+        return customerDao.findAllByCity(city);
     }
 
 }
