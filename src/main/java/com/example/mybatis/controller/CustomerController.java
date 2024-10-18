@@ -5,6 +5,7 @@ import com.example.mybatis.service.CustomerService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -28,6 +29,12 @@ public class CustomerController {
     @PutMapping
     public Customer update(@RequestBody Customer customer) {
         return service.update(customer);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id) {
+        service.deleteById(id);
     }
 
 }

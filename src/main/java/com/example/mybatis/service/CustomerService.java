@@ -27,10 +27,19 @@ public class CustomerService {
 
     public Customer update(Customer customer) {
         Customer founded = findById(customer.getId());
-        if (founded== null){
+        if (founded == null) {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Customer not found by id=%s".formatted(customer.getId()));
         }
         customerDao.update(customer);
         return customerDao.findById(customer.getId());
     }
+
+    public void deleteById(Integer id) {
+        Customer founded = findById(id);
+        if (founded == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Customer not found by id=%s".formatted(id));
+        }
+        customerDao.deleteById(id);
+    }
+
 }
