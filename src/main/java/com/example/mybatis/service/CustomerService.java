@@ -48,4 +48,8 @@ public class CustomerService {
         return customerDao.findAllByCity(city);
     }
 
+    public List<Customer> findAll() {
+        return customerDao.findAll();
+    }
+
 }
