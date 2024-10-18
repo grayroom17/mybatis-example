@@ -25,4 +25,9 @@ public class CustomerController {
         return service.findById(id);
     }
 
+    @PutMapping
+    public Customer update(@RequestBody Customer customer) {
+        return service.update(customer);
+    }
+
 }

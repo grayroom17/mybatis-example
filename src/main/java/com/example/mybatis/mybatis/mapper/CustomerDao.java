@@ -22,9 +22,9 @@ public interface CustomerDao {
 
     @Update("""
             update customers
-            set name=#{name}, city=#{city}, email=#{emeil}, phone=#{phone}
+            set name=#{name}, city=#{city}, email=#{email}, phone=#{phone}
             where id=#{id}""")
-    void updateCustomer(Customer customer);
+    void update(Customer customer);
 
     @Delete("""
             delete from customers
