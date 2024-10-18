@@ -29,7 +29,7 @@ public interface CustomerDao {
     @Delete("""
             delete from customers
             where id=#{id}""")
-    void deleteCustomerById(Integer id);
+    void deleteById(Integer id);
 
     @Select("""
             select *
